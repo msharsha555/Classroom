@@ -46,6 +46,12 @@ dashboard.get(function(req,res,next){
   res.render('contact');
 });
 
+var home = router.route('/');
+
+home.get(function(req,res,next){
+  res.render('index');
+});
+
 // -----------------------------------------------------------------------------
 // var login = router.route('/login');
 //
