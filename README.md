@@ -8,9 +8,9 @@ project for DBMS course Students only
 This is an example of RESTful CRUD in Node.js n mySQL.
 
 ## Installation
-*for newbies : Clone or download zip to your machine then hit this :
+Clone or download zip to your machine then hit this :
 
-    cd rest-crud
+    cd classroom
 
 then
 
@@ -23,12 +23,11 @@ server.js
         user: 'root',
         password : 'root',
         port : 3000, //port mysql
-        database:'test'
+        database:'classroom'
 
 
-
-You're gonna need to create a DB named 'test' or whatever you name it,  import t_user.sql
+You're gonna need to create a DB named 'classroom' or whatever you name it,  import classroom.sql
 
 
 ## Open your Browser
-And type: localhost:3000/api/user
+And type: localhost:3000/

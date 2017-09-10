@@ -7,5 +7,7 @@ Clone the repository.
 In command prompt, cd to master (.git) directory -> run "npm install" (this will take 30-50sec)
 Open MYSQL workbench -> "Data Import/ Restore" -> "Import from Self-contained File" -> Choose dump sql file (<RepoName>\<RepoName>.sql) -> Click on "New..." -> Name it <RepoName> -> "Start Import".
 Make sure host, Name, password, and database are entered correctly according to your system configuration. You may correct it in <RepoName>\server.js file line no. 23.
+Run "npm start" in cmd. Now your port is listening for API calls at 3000.
+Go to localhost:3000/ in browser.
 
 If you find any issue at any step add it issues with error screenshot. Thanks

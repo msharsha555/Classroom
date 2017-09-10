@@ -495,7 +495,7 @@ remove curut2.all() if you dont want it
 app.use(router);
 
 //start Server
-var server = app.listen(8000,function(){
+var server = app.listen(3000,function(){
 
    console.log("Listening to port %s",server.address().port);
 
