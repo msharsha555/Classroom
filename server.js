@@ -22,8 +22,8 @@ app.use(
     connection(mysql,{
         host     : 'localhost',
         user     : 'root',
-        password : 'root',
-        database : 'classroom',
+        password : 'erenesto',
+        database : 'classroomprofessionals',
         debug    : false //set true if you wanna see debug logger
     },'request')
 );
@@ -50,6 +50,119 @@ var home = router.route('/');
 
 home.get(function(req,res,next){
   res.render('index');
+});
+
+var department = router.route('/department');
+
+department.get(function(req,res,next){
+   connection.query('SELECT (SELECT * FROM Department) As DEP_info, (SELECT * FROM Dept_event) As Dep_event, (SELECT * FROM Dept_images) As Dep_image, (SELECT * FROM Dept_notice) As Dep_notice'function(err, result) {
+
+        if(err){
+            throw err;
+        } else {
+            obj = {department: result};
+            res.render('department', obj);                
+        }
+    });
+});
+
+var groups = router.route('/groups');
+
+groups.get(function(req,res,next){
+   connection.query('SELECT * FROM Groups'function(err, result) {
+
+        if(err){
+            throw err;
+        } else {
+            obj = {groups: result};
+            res.render('groups', obj);                
+        }
+    });
+});
+
+var courses = router.route('/courses');
+
+courses.get(function(req,res,next){
+   connection.query('SELECT * FROM Courses'function(err, result) {
+
+        if(err){
+            throw err;
+        } else {
+            obj = {courses: result};
+            res.render('courses', obj);                
+        }
+    });
+});
+
+
+var faculty = router.route('/faculty');
+
+faculty.get(function(req,res,next){
+   connection.query('SELECT * FROM Faculty'function(err, result) {
+
+        if(err){
+            throw err;
+        } else {
+            obj = {faculty: result};
+            res.render('faculty', obj);                
+        }
+    });
+});
+
+var hostels = router.route('/hostels');
+
+hostels.get(function(req,res,next){
+   connection.query('SELECT * FROM Hostels'function(err, result) {
+
+        if(err){
+            throw err;
+        } else {
+            obj = {hostels: result};
+            res.render('hostels', obj);                
+        }
+    });
+});
+
+var news = router.route('/news');
+
+news.get(function(req,res,next){
+   connection.query('SELECT * FROM News'function(err, result) {
+
+        if(err){
+            throw err;
+        } else {
+            obj = {news: result};
+            res.render('news', obj);                
+        }
+    });
+});
+
+var student = router.route('/student');
+
+student.get(function(req,res,next){
+   connection.query('SELECT * FROM Student'function(err, result) {
+
+        if(err){
+            throw err;
+        } else {
+            obj = {student: result};
+            res.render('student', obj);                
+        }
+    });
+});
+
+var event = router.route('/event');
+
+event.get(function(req,res,next){
+   connection.query('SELECT (SELECT * FROM Events) As eve_info, (SELECT * FROM Events_images) As eve_img'function(err, result) {
+
+        if(err){
+            throw err;
+        } else {
+            obj = {event: result};
+            res.render('event', obj);                
+        }
+    });
 });
 
 // -----------------------------------------------------------------------------
