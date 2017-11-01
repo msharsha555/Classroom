@@ -1,6 +1,6 @@
 {
-  "name": "Mock College",
-  "description": "Mock College Site using nodejs and mysql",
+  "name": "rest-crud",
+  "description": "REST CRUD Example Node.js & Mysql",
   "version": "0.0.1",
   "private": true,
   "main": "server.js",

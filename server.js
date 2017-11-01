@@ -41,6 +41,7 @@ router.use(function(req, res, next) {
 
 var home = router.route('/');
 
+/*
 home.get(function(req,res,next){
     connection.query('SELECT (SELECT Post_timestamp FROM Events ORDER BY Post_timestamp DESC Limit 3) As event_time,(SELECT Title FROM Events ORDER BY Post_timestamp DESC Limit 3) As events, (SELECT Title FROM News ORDER BY Post_timestamp DESC Limit 3) As news,(SELECT Post_timestamp FROM News ORDER BY Post_timestamp DESC Limit 3) As news_time', function (err, result) {
         if(err){
@@ -48,6 +49,36 @@ home.get(function(req,res,next){
         } else {
             obj = {index: result};
             res.render('index', obj);                
+        }        
+    });
+});*/
+
+/*
+home.get(function(req,res,next){
+    async.parallel([
+  function(callback) { connection.query(QUERY1, callback) },
+  function(callback) { connection.query(QUERY2, callback) }
+    ], function(err, result) {
+  res.render('template', { event : result[0], news : result[1] });
+});
+});*/
+var q;
+home.get(function(req,res,next){
+    connection.query('SELECT Title,Post_timestamp FROM Events ORDER BY Post_timestamp DESC Limit 5', function (err, result1) {
+        if(err){
+            throw err;
+        } else {
+            q = {index: result1};                
+        }        
+    });
+    connection.query('SELECT Title,Post_timestamp FROM News ORDER BY Post_timestamp DESC Limit 5', function (err, result2) {
+        if(err){
+            throw err;
+        } else {
+            var obj ={};
+            obj.index = q.index;
+            obj.part2 = result2;  
+            res.render('index', obj);         
         }        
     });
 });
@@ -71,7 +102,6 @@ var groups = router.route('/groups');
 
 groups.get(function(req,res,next){
    connection.query('SELECT * FROM Groups',function(err, result) {
-
         if(err){
             throw err;
         } else {

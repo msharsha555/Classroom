@@ -6,7 +6,7 @@
     ================================================== -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <title>WpF Degree : Home</title>
+     <title> Home</title>
 
     <!-- Mobile Specific Metas
     ================================================== -->
@@ -42,13 +42,6 @@
     <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
   </head>
   <body>
 
@@ -73,16 +66,14 @@
                    <div class="slider_caption">
                     <h2>Oldest & Beautiful University</h2>
                     <p>Indian Institute of Technology - Roorkee is among the foremost of institutes of national importance in higher technological education and in engineering, basic and applied research. Since its establishment, the Institute has played a vital role in providing the technical manpower and know-how to the country and in pursuit of research. The Institute ranks amongst the best technological institutions in the world and has contributed to all sectors of technological development. It has also been considered a trend-setter in the area of education and research in the field of science, technology, and engineering.</p>
-                    <a class="slider_btn" href="#">Know More</a>
                   </div>
                 </li>
                 <!-- Start single slider-->
                   <li>
                     <img src="img/slider/2.jpg" alt="img">
                      <div class="slider_caption">
-                      <h2>Largest & Beautiful University</h2>
-                      <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-                      <a class="slider_btn" href="#">Know More</a>
+                      <h2>Mission</h2>
+                      <p>To attain global level of excellence in education and to create a sustainable and equitable society through innovative research in science and technology.</p>
                     </div>
                   </li>
                   <!-- Start single slider-->
@@ -90,17 +81,15 @@
                   <img src="img/slider/3.jpg" alt="img">
                    <div class="slider_caption slider_right_caption">
                     <h2>Better Education Environment</h2>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search</p>
-                    <a class="slider_btn" href="#">Know More</a>
+                    <p>To create an environment that shall foster the growth of intellectually capable, innovative and entrepreneurial professionals, who shall contribute to the growth of Science and Technology in partnership with industry and develop and harness it for the welfare of the nation and mankind.</p>
                   </div>
                 </li>
                 <!-- Start single slider-->
                 <li>
                   <img src="img/slider/4.jpg" alt="img">
                    <div class="slider_caption">
-                    <h2>Find out you in better way</h2>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search</p>
-                    <a class="slider_btn" href="#">Know More</a>
+                    <h2>Core Values</h2>
+                    <p>Academic integrity and accountability.<br>Respect and tolerance for the views of every individual.<br>Attention to issues of national relevance as well as of global concern.<br>Holistic understanding, including knowledge of the human sciences.<br>Appreciation of intellectual excellence and creativity.<br>An unfettered spirit of learning exploration, rationality and enterprise.<br>Sensitivity to social responsibilities.</p>
                   </div>
                 </li>
               </ul>
@@ -123,14 +112,13 @@
         <div class="col-lg-6 col-md-6 col-sm-6">
           <div class="aboutus_area wow fadeInLeft">
             <h2 class="titile">About Us</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <p>Indian Institute of Technology - Roorkee is among the foremost of institutes of national importance in higher technological education and in engineering, basic and applied research. Since its establishment, the Institute has played a vital role in providing the technical manpower and know-how to the country and in pursuit of research. The Institute ranks amongst the best technological institutions in the world and has contributed to all sectors of technological development. It has also been considered a trend-setter in the area of education and research in the field of science, technology, and engineering.<br><br>The Institute had celebrated its Sesquicentennial in October 1996 and now completed more than 170 years of its existence. It was converted to IIT on September 21, 2001 by an Ordinance issued by the Government of India declared it as the nation’s seventh Indian Institute of Technology, an “Institution of National Importance”.<br><br>The Institute offers Bachelor's Degree courses in 10 disciplines of Engineering and Architecture and Postgraduate's Degree in 55 disciplines of Engineering, Applied Science, Architecture and planning. The Institute has facility for doctoral work in all Departments and Research Centres.<br><br>The Institute admits students to B.Tech. and B.Arch. courses through the Joint Entrance Examination (JEE) conducted at various centres all over India.</p>
           </div>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6">
           <div class="newsfeed_area wow fadeInRight">
             <ul class="nav nav-tabs feed_tabs" id="myTab2">
               <li class="active"><a href="#news" data-toggle="tab">News</a></li>
-              <li><a href="#notice" data-toggle="tab">Notice</a></li>
               <li><a href="#events" data-toggle="tab">Events</a></li>
             </ul>
 
@@ -139,7 +127,7 @@
               <!-- Start news tab content -->
               <div class="tab-pane fade in active" id="news">
                 <ul class="news_tab">
-                  <% index.forEach(function (user) { %>
+                  <% part2.forEach(function (user) { %>
                   <li>
                     <div class="media">
                       <div class="media-left">
@@ -148,8 +136,8 @@
                         </a>
                       </div>
                       <div class="media-body">
-                       <a href="/news"><%= user.event %></a>
-                       <span class="feed_date"><%= user.event_time %></span>
+                       <a href="/news"><%= user.Title %></a>
+                       <span class="feed_date"><%= user.Post_timestamp %></span>
                       </div>
                     </div>
                   </li>
@@ -169,8 +157,8 @@
                         </a>
                       </div>
                       <div class="media-body">
-                       <a href="#"><%= user.news %></a>
-                       <span class="feed_date"><%= user.news_time %></span>
+                       <a href="#"><%= user.Title %></a>
+                       <span class="feed_date"><%= user.Post_timestamp %></span>
                       </div>
                     </div>
                   </li>
