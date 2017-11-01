@@ -148,7 +148,8 @@
                         </a>
                       </div>
                       <div class="media-body">
-                       <a href="/news"><%= user.events %></a>
+                       <a href="/news"><%= user.event %></a>
+                       <span class="feed_date"><%= user.event_time %></span>
                       </div>
                     </div>
                   </li>
@@ -169,6 +170,7 @@
                       </div>
                       <div class="media-body">
                        <a href="#"><%= user.news %></a>
+                       <span class="feed_date"><%= user.news_time %></span>
                       </div>
                     </div>
                   </li>

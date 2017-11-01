@@ -42,7 +42,7 @@ router.use(function(req, res, next) {
 var home = router.route('/');
 
 home.get(function(req,res,next){
-    connection.query('SELECT (SELECT Title FROM Events ORDER BY Post_timestamp DESC Limit 3) As events, (SELECT Title FROM News ORDER BY Post_timestamp DESC Limit 3) As news', function (err, result) {
+    connection.query('SELECT (SELECT Post_timestamp FROM Events ORDER BY Post_timestamp DESC Limit 3) As event_time,(SELECT Title FROM Events ORDER BY Post_timestamp DESC Limit 3) As events, (SELECT Title FROM News ORDER BY Post_timestamp DESC Limit 3) As news,(SELECT Post_timestamp FROM News ORDER BY Post_timestamp DESC Limit 3) As news_time', function (err, result) {
         if(err){
             throw err;
         } else {
@@ -113,7 +113,7 @@ faculty.get(function(req,res,next){
 var hostels = router.route('/hostels');
 
 hostels.get(function(req,res,next){
-   connection.query('SELECT * FROM Hostels',function(err, result) {
+   connection.query('SELECT * FROM Hostel',function(err, result) {
 
         if(err){
             throw err;
@@ -155,13 +155,13 @@ student.get(function(req,res,next){
 var event = router.route('/events');
 
 event.get(function(req,res,next){
-   connection.query('SELECT (SELECT * FROM Events) As eve_info, (SELECT * FROM Events_images) As eve_img',function(err, result) {
-
+   connection.query('SELECT * FROM Events',function(err, result) {
+/*SELECT (SELECT * FROM Events) As eve_info, (SELECT * FROM Event_images) As eve_img*/
         if(err){
             throw err;
         } else {
             obj = {event: result};
-            res.render('event', obj);                
+            res.render('events', obj);                
         }
     });
 });
