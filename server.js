@@ -15,18 +15,14 @@ app.use(bodyParser.json());
 app.use(expressValidator());
 
 /*MySql connection*/
-var connection  = require('express-myconnection'),
-    mysql = require('mysql');
+var mysql = require('mysql');
 
-app.use(
-    connection(mysql,{
-        host     : 'localhost',
-        user     : 'root',
-        password : '1969',
-        database : 'classroom',
-        debug    : false //set true if you wanna see debug logger
-    },'request')
-);
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : '1969',
+  database : 'classroom'
+});
 
 //RESTful route
 var router = express.Router();
@@ -45,12 +41,13 @@ router.use(function(req, res, next) {
 var home = router.route('/');
 
 home.get(function(req,res,next){
-pool.query("SELECT Title,Post_timestamp FROM Events WHERE ORDER BY Post_timestamp DESC Limit 3", function (error, result, client){
-        var result1 = result;
-        pool.query("SELECT Title,Post_timestamp FROM News WHERE ORDER BY Post_timestamp DESC Limit 3", function (error, result, client){
-            var result2 = result;
-            res.render('index', {event_slide:result1, news_slide:result2});
-        });
+    connection.query('SELECT (SELECT Title,Post_timestamp FROM Events WHERE ORDER BY Post_timestamp DESC Limit 3) As events, (SELECT Title,Post_timestamp FROM News WHERE ORDER BY Post_timestamp DESC Limit 3) As news', function (err, res) {
+        if(err){
+            throw err;
+        } else {
+            obj = {index: result};
+            res.render('index', obj);                
+        }        
     });
 });
 
