@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 28, 2017 at 05:01 AM
+-- Generation Time: Nov 01, 2017 at 08:47 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -122,7 +122,6 @@ CREATE TABLE `Event_images` (
 --
 
 CREATE TABLE `Faculty` (
-  `Group_ID` varchar(20) NOT NULL,
   `Faculty_ID` varchar(20) NOT NULL,
   `Name` varchar(50) NOT NULL,
   `Phone_No` varchar(20) NOT NULL,
@@ -144,7 +143,9 @@ CREATE TABLE `Faculty` (
 CREATE TABLE `Groups` (
   `Name` varchar(100) NOT NULL,
   `Group_ID` varchar(20) NOT NULL,
-  `Year_of_formation` int(4) NOT NULL
+  `Description` varchar(10000) NOT NULL,
+  `Year_of_formation` int(4) NOT NULL,
+  `Faculty_ID` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
 
 -- --------------------------------------------------------
@@ -249,7 +250,7 @@ ALTER TABLE `Event_images`
 -- Indexes for table `Faculty`
 --
 ALTER TABLE `Faculty`
-  ADD PRIMARY KEY (`Group_ID`,`Faculty_ID`);
+  ADD PRIMARY KEY (`Faculty_ID`);
 
 --
 -- Indexes for table `Groups`
