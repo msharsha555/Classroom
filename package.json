@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "private": true,
   "main": "server.js",
-  "dependencies": {
+  "dependencies": 
+  {
     "body-parser": "1.9.0",
     "ejs": "^1.0.0",
     "express": "4.9.5",
@@ -14,26 +15,30 @@
     "async": "*"
   },
   "devDependencies": {},
-  "scripts": {
+  "scripts": 
+  {
     "start": "node server.js"
   },
-  "repository": {
+  "repository": 
+  {
     "type": "git",
-    "url": "git://github.com/msharsha555/Classroom.git"
+    "url" : "git://github.com/msharsha555/Classroom.git"
   },
   "Message": "Goto http::localhost/8080",
-  "keywords": [
+  "keywords": 
+  [
     "real",
     "time",
     "collaborative",
     "text",
     "editor",
     "chat-box",
-    "Socket.io",
+    "socket.io",
     "express"
   ],
-  "author": "Miryala Harsha, Utsav Mangal , Sanju Prabhath , Sri Harsha",
-  "bugs": {
+  "author": "Miryala HarshaVardhan , Utsav Mangal , Sanju Prabhath Reddy , Sri Harsha Majeti",
+  "bugs": 
+  {
     "url": "https://github.com/msharsha555/Classroom/issues"
   },
   "homepage": "https://github.com/msharsha555/Classroom"
