@@ -39,6 +39,12 @@ router.use(function(req, res, next) {
     next();
 });
 
+var dashboard = router.route('/contact');
+
+dashboard.get(function(req,res,next){
+  res.render('contact');
+});
+
 var home = router.route('/');
 
 /*
