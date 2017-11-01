@@ -1,6 +1,6 @@
 {
-  "name": "rest-crud",
-  "description": "REST CRUD Example Node.js & Mysql",
+  "name": "Mock College",
+  "description": "Mock College Site using nodejs and mysql",
   "version": "0.0.1",
   "private": true,
   "main": "server.js",
@@ -12,5 +12,29 @@
     "express-validator": "^2.6.0",
     "mysql": "2.15.0",
     "async": "*"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/msharsha555/Classroom.git"
+  },
+  "Message": "Goto http::localhost/8080",
+  "keywords": [
+    "real",
+    "time",
+    "collaborative",
+    "text",
+    "editor",
+    "chat-box",
+    "Socket.io",
+    "express"
+  ],
+  "author": "Miryala Harsha, Utsav Mangal , Sanju Prabhath , Sri Harsha",
+  "bugs": {
+    "url": "https://github.com/msharsha555/Classroom/issues"
+  },
+  "homepage": "https://github.com/msharsha555/Classroom"
 }
