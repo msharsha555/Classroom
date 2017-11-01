@@ -28,6 +28,7 @@ var connection = mysql.createConnection({
 var router = express.Router();
 
 var async = require('async');//new
+var obj = {};
 
 /*------------------------------------------------------
 *  This is router middleware,invoked everytime we hit url
