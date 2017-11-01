@@ -10,7 +10,7 @@
     "express": "4.9.5",
     "express-myconnection": "*",
     "express-validator": "^2.6.0",
-    "mysql": "*",
+    "mysql": "2.15.0",
     "async": "*"
   }
 }

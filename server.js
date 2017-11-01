@@ -42,7 +42,7 @@ router.use(function(req, res, next) {
 var home = router.route('/');
 
 home.get(function(req,res,next){
-    connection.query('SELECT (SELECT Title,Post_timestamp FROM Events WHERE ORDER BY Post_timestamp DESC Limit 3) As events, (SELECT Title,Post_timestamp FROM News WHERE ORDER BY Post_timestamp DESC Limit 3) As news', function (err, res) {
+    connection.query('SELECT (SELECT Title FROM Events ORDER BY Post_timestamp DESC Limit 3) As events, (SELECT Title FROM News ORDER BY Post_timestamp DESC Limit 3) As news', function (err, result) {
         if(err){
             throw err;
         } else {

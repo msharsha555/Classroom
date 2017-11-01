@@ -139,7 +139,7 @@
               <!-- Start news tab content -->
               <div class="tab-pane fade in active" id="news">
                 <ul class="news_tab">
-                  <% news_slide.forEach(function (user) { %>
+                  <% index.forEach(function (user) { %>
                   <li>
                     <div class="media">
                       <div class="media-left">
@@ -148,8 +148,7 @@
                         </a>
                       </div>
                       <div class="media-body">
-                       <a href="/news"><%= user.Title %></a>
-                       <span class="feed_date"><%= user.Post_timestamp %></span>
+                       <a href="/news"><%= user.events %></a>
                       </div>
                     </div>
                   </li>
@@ -160,7 +159,7 @@
               <!-- Start events tab content -->
               <div class="tab-pane fade " id="events">
                 <ul class="news_tab">
-                  <% news_slide.forEach(function (user) { %>                
+                  <% index.forEach(function (user) { %>                
                   <li>
                     <div class="media">
                       <div class="media-left">
@@ -169,8 +168,7 @@
                         </a>
                       </div>
                       <div class="media-body">
-                       <a href="#"><%= user.Title %></a>
-                       <span class="feed_date"><%= user.Post_timestamp %></span>
+                       <a href="#"><%= user.news %></a>
                       </div>
                     </div>
                   </li>
