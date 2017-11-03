@@ -44,6 +44,24 @@
 
   </head>
   <body>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+  <script>
+    var socket = io.connect('http://localhost:3000');
+    socket.on('images_asked',function(x,obj){
+        /*for(var i=0;i<result.size().)
+        {
+            $('#'+x).append(<img alt="img" src=result[i]. >)
+        }*/
+        $('#'+x).append('<img alt="img" src="'+ obj +'">');  
+    });
+    $(function() {
+        $('input[type=button]').on('click', function(){
+            var x = $(this).get(0).id;
+            socket.emit('event_images',x);
+        });
+    });
+  </script>
 
     <!-- SCROLL TOP BUTTON -->
     <a class="scrollToTop" href="#"></a>
@@ -82,6 +100,8 @@
                       <p><i class="fa fa-clock-o"></i><%= user.Post_timestamp %></p>
                     </div>
                     <p class="blog_summary"><%= user.Description %></p>
+                    <input type="button" id=<%= user.ID %> value="More images" />
+                    <div id=<%= user.ID %>></div>
                   </div>
                 </div>
                 <% }) %>

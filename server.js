@@ -2,8 +2,9 @@ var express  = require('express'),
     path     = require('path'),
     bodyParser = require('body-parser'),
     app = express(),
-    expressValidator = require('express-validator');
-
+    expressValidator = require('express-validator'),
+    server = require('http').createServer(app)
+    io = require('socket.io').listen(server);
 
 /*Set EJS template Engine*/
 app.set('views','./views');
@@ -57,16 +58,6 @@ home.get(function(req,res,next){
             res.render('index', obj);                
         }        
     });
-});*/
-
-/*
-home.get(function(req,res,next){
-    async.parallel([
-  function(callback) { connection.query(QUERY1, callback) },
-  function(callback) { connection.query(QUERY2, callback) }
-    ], function(err, result) {
-  res.render('template', { event : result[0], news : result[1] });
-});
 });*/
 var q;
 home.get(function(req,res,next){
@@ -205,9 +196,28 @@ event.get(function(req,res,next){
 //now we need to apply our router here
 app.use(router);
 
-//start Server
-var server = app.listen(3000,function(){
-
-   console.log("Listening to port %s",server.address().port);
-
+io.on('connection',function(socket){
+    console.log('a user connected');
+    socket.on('event_images',function(x){
+        var k = x;
+        connection.query('SELECT * FROM Event_images WHERE e_ID =?',[k],function(err,rows,fields){
+            if(err){
+                throw err;
+            } else {
+                /*obj = {images: result};
+                socket.emit('images_asked',k,obj);*/
+                for(var i in rows)
+                {
+                    socket.emit('images_asked',k,rows[i].Event_image_Url);
+                }
+            }
+        });
+    });
 });
+
+
+//start Server
+server.listen(process.env.PORT || 3000, function(){
+    console.log('app running at port 3000');
+});
+
