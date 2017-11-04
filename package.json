@@ -21,7 +21,7 @@
     "type": "git",
     "url": "git://github.com/msharsha555/Classroom.git"
   },
-  "Message": "Goto http::localhost/8080",
+  "Message": "Goto http::localhost:3000",
   "keywords": [
     "real",
     "time",
