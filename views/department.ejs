@@ -74,7 +74,7 @@
                   <div class="single_blog_archive wow fadeInUp">
                     <div class="blogimg_container">
                       <!-- <a href="#" class="blog_img"> -->
-                        <img alt="img" src=<%= user.Small_image_Url %>>
+                        <img alt="img" src=<%= user.Small_image_Url %> width ="850" height="500">
                       <!-- </a> -->
                     </div>
                     <h2 class="blog_title"><p><%= user.Name %></p></h2>
@@ -84,6 +84,7 @@
                     <p class="blog_summary"><%= user.Description %></p>
                     <p class="blog_summary">Expertise : <%= user.Major_expertise %></p>
                     <p class="blog_summary">Address : <%= user.Adress %></p>
+                    <a class="blog_readmore" href="/department/<%= user.ID %>">Read More</a>
                   </div>
                 </div>
                 <% }) %>

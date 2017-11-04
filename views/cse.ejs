@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
     <!-- Basic Page Needs
     ================================================== -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <title> Events </title>
+     <title> CSE </title>
 
     <!-- Mobile Specific Metas
     ================================================== -->
@@ -20,7 +19,7 @@
     <!-- Bootstrap css file-->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Font awesome css file-->
-    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">    
     <!-- Superslide css file-->
     <link rel="stylesheet" href="css/superslides.css">
     <!-- Slick slider css file -->
@@ -55,7 +54,7 @@
 
     <!--=========== BEGIN COURSE BANNER SECTION ================-->
     <section id="imgBanner">
-      <h2>Events</h2>
+      <h2> CSE </h2>
     </section>
     <!--=========== END COURSE BANNER SECTION ================-->
 
@@ -68,13 +67,50 @@
             <div class="courseArchive_content">
               <!-- start blog archive  -->
               <div class="row">
+                <!-- start single blog -->
+                <div class="col-lg-12 col-12 col-sm-12">
+                  <div class="single_blog">
+                    <!-- start events slider -->
+                    <div class="events_slider_area">
+                      <div class="events_slider">
+                      <% part2.forEach(function (user) { %>
+                        <div><img src=<%= user.Carousel_image_Url %> alt="img" width ="850" height="500"></div>
+                      <% }) %>
+                      </div>
+                    </div>
+                    <!-- End events slider -->
+                    <h2 class="blog_title">CSE Department</h2>
+                    <p>In view of the increasing importance of the Electronics Engineering discipline, a separate Department of Electronics & Communication Engineering was established in 1964 to offer Bachelor of engineering degree in Electronics & Communication and Master of Engineering degrees in (a) Advanced Electronics and (b) Applied Electronics & Servomechanisms. In 1968, the postgraduate programme was restructured with specializations in the areas of Communication Systems, Control and guidance, Microwaves and Radar, and Solid State Electronics. Two new undergraduate and postgraduate programmes in Computer Science and Technology were started in the year 1982. Keeping in view the activities of the Department, the name was changed to Department of Electronics and Computer Engineering. In January 2013, the Department of Electronics and Computer Engineering was been bifurcated into two separate departments i.e. ''Electronics and Communication Engineering'' and ''Computer Science and Engineering''.<br>The Department has always been on a high growth path and to keep pace with the current technological trends, the Department has started an M.Tech. programme in Information Technology.</p>
+                  </div>
+                </div>
+                <!-- End single blog -->
+                <h2 class="blog_title">Realted News</h2>
                 <!-- start single blog archive -->
-                <% event.forEach(function (user) { %>  
+                <% part4.forEach(function (user) { %>  
                 <div class="col-lg-12 col-12 col-sm-12">
                   <div class="single_blog_archive wow fadeInUp">
                     <div class="blogimg_container">
                       <!-- <a href="#" class="blog_img"> -->
-                        <img alt="img" src=<%= user.Central_image_Url %> width ="850" height="500">
+                        <img alt="img" src=<%= user.Image_Url %>>
+                      <!-- </a> -->
+                    </div>
+                    <h2 class="blog_title"><p><%= user.Title %></p></h2>
+                    <div class="blog_commentbox">
+                      <p><i class="fa fa-clock-o"></i><%= user.Post_timestamp %></p>
+                    </div>
+                    <p class="blog_summary"><%= user.Description %></p>
+                  </div>
+                </div>
+                <% }) %>
+                <!-- End single blog archive -->
+                <h2 class="blog_title">Realted Events</h2>
+                <!-- start single blog archive -->
+                <% part3.forEach(function (user) { %>  
+                <div class="col-lg-12 col-12 col-sm-12">
+                  <div class="single_blog_archive wow fadeInUp">
+                    <div class="blogimg_container">
+                      <!-- <a href="#" class="blog_img"> -->
+                        <img alt="img" src=<%= user.Central_image_Url %>>
                       <!-- </a> -->
                     </div>
                     <h2 class="blog_title"><p><%= user.Title %></p></h2>
@@ -88,6 +124,7 @@
                 <!-- End single blog archive -->
               </div>
               <!-- end blog archive  -->
+              
             </div>
           </div>
           <!-- End course content -->
@@ -124,7 +161,6 @@
 
     <!-- Custom js-->
     <script src="js/custom.js"></script>
-
 
   </body>
 </html>

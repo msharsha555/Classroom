@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
     <!-- Basic Page Needs
     ================================================== -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <title> Events </title>
+     <title> EEE </title>
 
     <!-- Mobile Specific Metas
     ================================================== -->
@@ -20,7 +19,7 @@
     <!-- Bootstrap css file-->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Font awesome css file-->
-    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">    
     <!-- Superslide css file-->
     <link rel="stylesheet" href="css/superslides.css">
     <!-- Slick slider css file -->
@@ -55,7 +54,7 @@
 
     <!--=========== BEGIN COURSE BANNER SECTION ================-->
     <section id="imgBanner">
-      <h2>Events</h2>
+      <h2> EEE </h2>
     </section>
     <!--=========== END COURSE BANNER SECTION ================-->
 
@@ -68,13 +67,50 @@
             <div class="courseArchive_content">
               <!-- start blog archive  -->
               <div class="row">
+                <!-- start single blog -->
+                <div class="col-lg-12 col-12 col-sm-12">
+                  <div class="single_blog">
+                    <!-- start events slider -->
+                    <div class="events_slider_area">
+                      <div class="events_slider">
+                      <% part2.forEach(function (user) { %>
+                        <div><img src=<%= user.Carousel_image_Url %> alt="img" width ="850" height="500"></div>
+                      <% }) %>
+                      </div>
+                    </div>
+                    <!-- End events slider -->
+                    <h2 class="blog_title">EEE Department</h2>
+                    <p>Presently the department is running the courses at both the undergraduate and the postgraduate levels and providing excellent facilities to carry out research work for Doctor of Philosophy (Ph.D.) degree, R&D work for sponsored and consultancy projects and testing and consultancy work for industrial problems.This is, of course, in addition to the regular courses in Bachelor of Technology (B.Tech.) and Master of Technology (M.Tech.) that are a part of the curriculum. So, we welcome you to this arena of the world which holds the pride of being a pioneer in the area of Electrical Engineering even when most of the world was evolving the subject .of Electrical Engineering was founded in the year 1957 under aegis of the Government of India. Since then Department of Electrical Engineering at IIT Roorkee (formerly University of Roorkee) has made landmark contributions to the development of cutting edge technology in various branches.</p>
+                  </div>
+                </div>
+                <!-- End single blog -->
+                <h2 class="blog_title">Realted News</h2>
                 <!-- start single blog archive -->
-                <% event.forEach(function (user) { %>  
+                <% part4.forEach(function (user) { %>  
                 <div class="col-lg-12 col-12 col-sm-12">
                   <div class="single_blog_archive wow fadeInUp">
                     <div class="blogimg_container">
                       <!-- <a href="#" class="blog_img"> -->
-                        <img alt="img" src=<%= user.Central_image_Url %> width ="850" height="500">
+                        <img alt="img" src=<%= user.Image_Url %>>
+                      <!-- </a> -->
+                    </div>
+                    <h2 class="blog_title"><p><%= user.Title %></p></h2>
+                    <div class="blog_commentbox">
+                      <p><i class="fa fa-clock-o"></i><%= user.Post_timestamp %></p>
+                    </div>
+                    <p class="blog_summary"><%= user.Description %></p>
+                  </div>
+                </div>
+                <% }) %>
+                <!-- End single blog archive -->
+                <h2 class="blog_title">Realted Events</h2>
+                <!-- start single blog archive -->
+                <% part3.forEach(function (user) { %>  
+                <div class="col-lg-12 col-12 col-sm-12">
+                  <div class="single_blog_archive wow fadeInUp">
+                    <div class="blogimg_container">
+                      <!-- <a href="#" class="blog_img"> -->
+                        <img alt="img" src=<%= user.Central_image_Url %>>
                       <!-- </a> -->
                     </div>
                     <h2 class="blog_title"><p><%= user.Title %></p></h2>
@@ -88,6 +124,7 @@
                 <!-- End single blog archive -->
               </div>
               <!-- end blog archive  -->
+              
             </div>
           </div>
           <!-- End course content -->
@@ -124,7 +161,6 @@
 
     <!-- Custom js-->
     <script src="js/custom.js"></script>
-
 
   </body>
 </html>
