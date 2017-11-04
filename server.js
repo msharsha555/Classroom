@@ -20,14 +20,14 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : '****', 
+  password : '1969', 
   database : 'classroom'
 });
 
 //RESTful route
 var router = express.Router();
 
-var async = require('async');//new
+var async = require('async');
 var obj = {};
 
 /*------------------------------------------------------
