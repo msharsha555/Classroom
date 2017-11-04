@@ -16,7 +16,8 @@ app.use(expressValidator());
 
 /*MySql connection*/
 var mysql = require('mysql');
-
+//use your own password
+//name the data base as the same name u gave during importing sql file
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
