@@ -16,18 +16,19 @@ app.use(expressValidator());
 
 /*MySql connection*/
 var mysql = require('mysql');
-
+//use your own password
+//name the data base as the same name u gave during importing sql file
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : '****', 
+  password : '1969', 
   database : 'classroom'
 });
 
 //RESTful route
 var router = express.Router();
 
-var async = require('async');//new
+var async = require('async');
 var obj = {};
 
 /*------------------------------------------------------
