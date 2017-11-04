@@ -5,7 +5,7 @@
     ================================================== -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <title> CIVIL </title>
+     <title> Event-Single </title>
 
     <!-- Mobile Specific Metas
     ================================================== -->
@@ -54,7 +54,7 @@
 
     <!--=========== BEGIN COURSE BANNER SECTION ================-->
     <section id="imgBanner">
-      <h2> CIVIL </h2>
+      <h2> Mental Health Quiz </h2>
     </section>
     <!--=========== END COURSE BANNER SECTION ================-->
 
@@ -73,55 +73,21 @@
                     <!-- start events slider -->
                     <div class="events_slider_area">
                       <div class="events_slider">
-                      <% part2.forEach(function (user) { %>
-                        <div><img src=<%= user.Carousel_image_Url %> alt="img" width ="850" height="500"></div>
+                      <% part4.forEach(function (user) { %>
+                        <div><img src=<%= user.Event_image_Url %> alt="img" width ="850" height="500"></div>
                       <% }) %>
                       </div>
                     </div>
                     <!-- End events slider -->
-                    <h2 class="blog_title">CIVIL Department</h2>
-                    <p class="blog_summary">The Department of Civil Engineering at the Indian Institute of Technology Roorkee (Formerly University of Roorkee) is the oldest and the largest in the country and is considered as the best in the country for education in Civil Engineering. It was established on October 19, 1847 as Roorkee College in renamed as the Thomason College in 1854. The department is producing several eminent engineers who are making notable contributions in the planning and execution of Civil Engineering projects in India as well as abroad.<br>The department offers a four-year course leading to the Bachelors Degree in Civil Engineering and two-year courses leading to Master’s degree in eight major specialisations of civil engineering (viz., Bulding Science and Technology, Computer Aided Design, Environmental Engineering, Geomatics Engineering, Geotechnical Engineering, Hydraulics Engineering, Structural Engineering and Transportation Engineering). These programmes are supported with strong doctoral programmes in all the specialisations. More than 100 Ph. D. research scholars work in the department on emerging research problems. The department has justifiably provided itself on the quality of its academic programmes and is keeping pace with the latest developments in engineering education.</p>
-                  </div>
+                    <% index.forEach(function (user) { %>
+                      <h2 class="blog_title"><%= user.Title %></h2>
+                      <div class="blog_commentbox">
+                        <p><i class="fa fa-clock-o"></i><%= user.Post_timestamp %></p>
+                      </div>
+                      <p class="blog_summary"><%= user.Description %></p>
+                    <% }) %>
                 </div>
                 <!-- End single blog -->
-                <h2 class="blog_title">Realted News</h2>
-                <!-- start single blog archive -->
-                <% part4.forEach(function (user) { %>  
-                <div class="col-lg-12 col-12 col-sm-12">
-                  <div class="single_blog_archive wow fadeInUp">
-                    <div class="blogimg_container">
-                      <!-- <a href="#" class="blog_img"> -->
-                        <img alt="img" src=<%= user.Image_Url %>>
-                      <!-- </a> -->
-                    </div>
-                    <h2 class="blog_title"><p><%= user.Title %></p></h2>
-                    <div class="blog_commentbox">
-                      <p><i class="fa fa-clock-o"></i><%= user.Post_timestamp %></p>
-                    </div>
-                    <p class="blog_summary"><%= user.Description %></p>
-                  </div>
-                </div>
-                <% }) %>
-                <!-- End single blog archive -->
-                <h2 class="blog_title">Realted Events</h2>
-                <!-- start single blog archive -->
-                <% part3.forEach(function (user) { %>  
-                <div class="col-lg-12 col-12 col-sm-12">
-                  <div class="single_blog_archive wow fadeInUp">
-                    <div class="blogimg_container">
-                      <!-- <a href="#" class="blog_img"> -->
-                        <img alt="img" src=<%= user.Central_image_Url %>>
-                      <!-- </a> -->
-                    </div>
-                    <h2 class="blog_title"><p><%= user.Title %></p></h2>
-                    <div class="blog_commentbox">
-                      <p><i class="fa fa-clock-o"></i><%= user.Post_timestamp %></p>
-                    </div>
-                    <p class="blog_summary"><%= user.Description %></p>
-                  </div>
-                </div>
-                <% }) %>
-                <!-- End single blog archive -->
               </div>
               <!-- end blog archive  -->
               
