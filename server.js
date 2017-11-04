@@ -235,6 +235,118 @@ civil.get(function(req,res,next){
     });
 });
 
+var quiz = router.route('/event/general_quiz');
+str = 'general_quiz';
+quiz.get(function(req,res,next){
+    connection.query('SELECT * FROM Events WHERE ID =?',[str], function (err, result1) {
+        if(err){
+            throw err;
+        } else {
+            q = {index: result1};                
+        }        
+    });
+    connection.query('SELECT * FROM (Event_images natural join Events) WHERE e_ID =?',[str], function (err, result2) {
+        if(err){
+            throw err;
+        } else {
+            var obj ={};
+            obj.index = q.index;
+            obj.part4 = result2; 
+            res.render('general_quiz', obj);         
+        }        
+    });
+});
+
+var health_quiz = router.route('/event/mental_health_quiz');
+str = 'mental_health_quiz';
+health_quiz.get(function(req,res,next){
+    connection.query('SELECT * FROM Events WHERE ID =?',[str], function (err, result1) {
+        if(err){
+            throw err;
+        } else {
+            q = {index: result1};                
+        }        
+    });
+    connection.query('SELECT * FROM (Event_images natural join Events) WHERE e_ID =?',[str], function (err, result2) {
+        if(err){
+            throw err;
+        } else {
+            var obj ={};
+            obj.index = q.index;
+            obj.part4 = result2; 
+            res.render('mental_health_quiz', obj);         
+        }        
+    });
+});
+
+var newton = router.route('/event/newton_movie');
+str = 'newton_movie';
+newton.get(function(req,res,next){
+    connection.query('SELECT * FROM Events WHERE ID =?',[str], function (err, result1) {
+        if(err){
+            throw err;
+        } else {
+            q = {index: result1};                
+        }        
+    });
+    connection.query('SELECT * FROM (Event_images natural join Events) WHERE e_ID =?',[str], function (err, result2) {
+        if(err){
+            throw err;
+        } else {
+            var obj ={};
+            obj.index = q.index;
+            obj.part4 = result2; 
+            res.render('newton_movie', obj);         
+        }        
+    });
+});
+
+var rally = router.route('/event/rally_rivers');
+str = 'rally_rivers';
+rally.get(function(req,res,next){
+    connection.query('SELECT * FROM Events WHERE ID =?',[str], function (err, result1) {
+        if(err){
+            throw err;
+        } else {
+            q = {index: result1};                
+        }        
+    });
+    connection.query('SELECT * FROM (Event_images natural join Events) WHERE e_ID =?',[str], function (err, result2) {
+        if(err){
+            throw err;
+        } else {
+            var obj ={};
+            obj.index = q.index;
+            obj.part4 = result2; 
+            res.render('rally_rivers', obj);         
+        }        
+    });
+});
+
+var workshop = router.route('/event/workshop_on_ei');
+str = 'workshop_on_ei';
+workshop.get(function(req,res,next){
+    connection.query('SELECT * FROM Events WHERE ID =?',[str], function (err, result1) {
+        if(err){
+            throw err;
+        } else {
+            q = {index: result1};                
+        }        
+    });
+    connection.query('SELECT * FROM (Event_images natural join Events) WHERE e_ID =?',[str], function (err, result2) {
+        if(err){
+            throw err;
+        } else {
+            var obj ={};
+            obj.index = q.index;
+            obj.part4 = result2; 
+            res.render('workshop_on_ei', obj);         
+        }        
+    });
+});
+
+
+
 var groups = router.route('/groups');
 
 groups.get(function(req,res,next){
