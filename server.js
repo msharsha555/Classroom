@@ -138,14 +138,22 @@ ece.get(function(req,res,next){
             r = {index: result3};                
         }        
     });
+<<<<<<< HEAD
     connection.query('SELECT * FROM Department,(SELECT * FROM Dept_event,Events WHERE Events.ID=Dept_event.e_ID) as NEW WHERE Department.ID=NEW.d_ID AND Department.ID =?',[str], function (err, result4) {
+=======
+    connection.query('SELECT Events.Central_image_Url,Events.Title,Events.Post_timestamp,Events.Description FROM (Dept_event NATURAL JOIN Events) WHERE d_ID =?',[str], function (err, result4) {
+>>>>>>> c0a82ac2cc1617f099eca277c38a403ccf4865b2
         if(err){
             throw err;
         } else {
             s = {index: result4};                
         }        
     });
+<<<<<<< HEAD
     connection.query('SELECT * FROM Department,(SELECT * FROM Dept_notice,News WHERE News.ID=Dept_notice.n_ID) as NEW WHERE Department.ID=NEW.d_ID AND Department.ID =?',[str], function (err, result2) {
+=======
+    connection.query('SELECT * FROM (Dept_notice NATURAL JOIN News) WHERE d_ID =?',[str], function (err, result2) {
+>>>>>>> c0a82ac2cc1617f099eca277c38a403ccf4865b2
         if(err){
             throw err;
         } else {
