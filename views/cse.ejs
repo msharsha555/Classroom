@@ -79,19 +79,20 @@
                       </div>
                     </div>
                     <!-- End events slider -->
-                    <h2 class="blog_title">CSE Department</h2>
-                    <p class="blog_summary">In view of the increasing importance of the Electronics Engineering discipline, a separate Department of Electronics & Communication Engineering was established in 1964 to offer Bachelor of engineering degree in Electronics & Communication and Master of Engineering degrees in (a) Advanced Electronics and (b) Applied Electronics & Servomechanisms. In 1968, the postgraduate programme was restructured with specializations in the areas of Communication Systems, Control and guidance, Microwaves and Radar, and Solid State Electronics. Two new undergraduate and postgraduate programmes in Computer Science and Technology were started in the year 1982. Keeping in view the activities of the Department, the name was changed to Department of Electronics and Computer Engineering. In January 2013, the Department of Electronics and Computer Engineering was been bifurcated into two separate departments i.e. ''Electronics and Communication Engineering'' and ''Computer Science and Engineering''.<br>The Department has always been on a high growth path and to keep pace with the current technological trends, the Department has started an M.Tech. programme in Information Technology.</p>
-                  </div>
+                    <% index.forEach(function (user) { %>
+                    <h2 class="blog_title"><%= user.Name %></h2>
+                    <p class="blog_summary"><%= user.Description %></p>
+                    <% }) %>
                 </div>
                 <!-- End single blog -->
-                <h2 class="blog_title">Realted News</h2>
+                <h2 class="blog_title">Related News</h2>
                 <!-- start single blog archive -->
                 <% part4.forEach(function (user) { %>  
                 <div class="col-lg-12 col-12 col-sm-12">
                   <div class="single_blog_archive wow fadeInUp">
                     <div class="blogimg_container">
                       <!-- <a href="#" class="blog_img"> -->
-                        <img alt="img" src=<%= user.Image_Url %>>
+                        <img alt="img" src=<%= user.Image_Url %> width ="850" height="500">
                       <!-- </a> -->
                     </div>
                     <h2 class="blog_title"><p><%= user.Title %></p></h2>
@@ -103,14 +104,14 @@
                 </div>
                 <% }) %>
                 <!-- End single blog archive -->
-                <h2 class="blog_title">Realted Events</h2>
+                <h2 class="blog_title">Related Events</h2>
                 <!-- start single blog archive -->
                 <% part3.forEach(function (user) { %>  
                 <div class="col-lg-12 col-12 col-sm-12">
                   <div class="single_blog_archive wow fadeInUp">
                     <div class="blogimg_container">
                       <!-- <a href="#" class="blog_img"> -->
-                        <img alt="img" src=<%= user.Central_image_Url %>>
+                        <img alt="img" src=<%= user.Central_image_Url %> width ="850" height="500">
                       <!-- </a> -->
                     </div>
                     <h2 class="blog_title"><p><%= user.Title %></p></h2>

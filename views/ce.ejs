@@ -79,18 +79,20 @@
                       </div>
                     </div>
                     <!-- End events slider -->
-                    <h2 class="blog_title">CE Department</h2>
-                    <p class="blog_summary">The Department of Chemical Engineering was established in 1963 with an Undergraduate programme in Chemical Engineering. A Master’s course in Equipment and Plant Design was initiated in 1970. Later on, two new Master’s courses namely Industrial Pollution Abatement and Advanced Transfer Processes were inducted. Subsequently, the specialisation of Equipment and Plant Design was redesigned, updated and re-christened as Computer Aided Process Plant Design. At present, the Department is running three post-graduate programmes leading to M.Tech. (Chem.) degree with specialization in Computer Aided Process Plant Design, Industrial Pollution Abatement and Industrial Safety & Hazards Management. A five-year integrated programme on Hydrocarbon Engineering offering dual degree of B.Tech. (Chem. Engg.) and M.Tech. (Hydrocarbon Engineering) has been started from the session 2003-04 . The Department offers high level research programme in diverse areas of Chemical Engineering. It has been providing consultancy to chemical and allied industries in several areas.<br>The Department of Chemical Engineering at IIT, Roorkee is a comparatively smaller department, but offers large number of academic programmes with a large output of B.Tech and PG/Research students. It is the first department in the country to have started an innovative Masters programme in Industrial Pollution Abatement and Industrial Safety and Hazards Management. It is also the first department in the country to have started an integrated Dual Degree programme with Masters Programme in Hydrocarbon Engineering. The department has set very high standards in teaching and has engaged in useful and high level research exemplified by research papers in high impact peer-reviewed journals. Since the transformation of the University of Roorkee into an IIT, the Department has been engaged in the development of academic teaching and research infrastructure, creation of laboratories in analytical/instrumental analysis, modeling and simulation, safety and hydrocarbon engineering. The recent developments in sister disciplines and biological sciences have been imbedded in the curricular structure and are being adopted in our research activities.
+                    <% index.forEach(function (user) { %>
+                    <h2 class="blog_title"><%= user.Name %></h2>
+                    <p class="blog_summary"><%= user.Description %></p>
+                    <% }) %>
                 </div>
                 <!-- End single blog -->
-                <h2 class="blog_title">Realted News</h2>
+                <h2 class="blog_title">Related News</h2>
                 <!-- start single blog archive -->
                 <% part4.forEach(function (user) { %>  
                 <div class="col-lg-12 col-12 col-sm-12">
                   <div class="single_blog_archive wow fadeInUp">
                     <div class="blogimg_container">
                       <!-- <a href="#" class="blog_img"> -->
-                        <img alt="img" src=<%= user.Image_Url %>>
+                        <img alt="img" src=<%= user.Image_Url %> width ="850" height="500">
                       <!-- </a> -->
                     </div>
                     <h2 class="blog_title"><p><%= user.Title %></p></h2>
@@ -102,14 +104,14 @@
                 </div>
                 <% }) %>
                 <!-- End single blog archive -->
-                <h2 class="blog_title">Realted Events</h2>
+                <h2 class="blog_title">Related Events</h2>
                 <!-- start single blog archive -->
                 <% part3.forEach(function (user) { %>  
                 <div class="col-lg-12 col-12 col-sm-12">
                   <div class="single_blog_archive wow fadeInUp">
                     <div class="blogimg_container">
                       <!-- <a href="#" class="blog_img"> -->
-                        <img alt="img" src=<%= user.Central_image_Url %>>
+                        <img alt="img" src=<%= user.Central_image_Url %> width ="850" height="500">
                       <!-- </a> -->
                     </div>
                     <h2 class="blog_title"><p><%= user.Title %></p></h2>

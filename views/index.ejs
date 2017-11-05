@@ -131,8 +131,8 @@
                   <li>
                     <div class="media">
                       <div class="media-left">
-                        <a class="news_img" href="#">
-                          <img class="media-object" src="img/news.jpg" alt="img">
+                        <a class="news_img" href="/news">
+                          <img class="media-object" src=<%= user.Image_Url %> alt="img">
                         </a>
                       </div>
                       <div class="media-body">
@@ -152,12 +152,12 @@
                   <li>
                     <div class="media">
                       <div class="media-left">
-                        <a class="news_img" href="#">
-                          <img class="media-object" src="img/news.jpg" alt="img">
+                        <a class="news_img" href="/events">
+                          <img class="media-object" src=<%= user.Central_image_Url %> alt="img">
                         </a>
                       </div>
                       <div class="media-body">
-                       <a href="#"><%= user.Title %></a>
+                       <a href="/events"><%= user.Title %></a>
                        <span class="feed_date"><%= user.Post_timestamp %></span>
                       </div>
                     </div>
