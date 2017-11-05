@@ -1,7 +1,7 @@
 {
-  "name": "rest-crud",
-  "description": "REST CRUD Example Node.js & Mysql",
-  "version": "0.0.1",
+  "name": "IITR",
+  "description": "Mock College Project",
+  "version": "1.0.0",
   "private": true,
   "main": "server.js",
   "dependencies": {
@@ -22,16 +22,6 @@
     "url": "git://github.com/msharsha555/Classroom.git"
   },
   "Message": "Goto http::localhost:3000",
-  "keywords": [
-    "real",
-    "time",
-    "collaborative",
-    "text",
-    "editor",
-    "chat-box",
-    "socket.io",
-    "express"
-  ],
   "author": "Miryala HarshaVardhan , Utsav Mangal , Sanju Prabhath Reddy , Sri Harsha Majeti",
   "bugs": {
     "url": "https://github.com/msharsha555/Classroom/issues"

@@ -49,14 +49,14 @@ dashboard.get(function(req,res,next){
 var home = router.route('/');
 var q;
 home.get(function(req,res,next){
-    connection.query('SELECT Title,Post_timestamp FROM Events ORDER BY Post_timestamp DESC Limit 5', function (err, result1) {
+    connection.query('SELECT Title,Post_timestamp,Central_image_Url FROM Events ORDER BY Post_timestamp DESC Limit 5', function (err, result1) {
         if(err){
             throw err;
         } else {
             q = {index: result1};                
         }        
     });
-    connection.query('SELECT Title,Post_timestamp FROM News ORDER BY Post_timestamp DESC Limit 5', function (err, result2) {
+    connection.query('SELECT Title,Post_timestamp,Image_Url FROM News ORDER BY Post_timestamp DESC Limit 5', function (err, result2) {
         if(err){
             throw err;
         } else {
@@ -72,8 +72,6 @@ var department = router.route('/department');
 
 department.get(function(req,res,next){
    connection.query('SELECT * FROM Department',function(err, result) {
-/*'SELECT (SELECT * FROM Department) As DEP_info, (SELECT * FROM Dept_event) As Dep_event, 
-(SELECT * FROM Dept_images) As Dep_image, (SELECT * FROM Dept_notice) As Dep_notice'*/
         if(err){
             throw err;
         } else {
@@ -85,8 +83,9 @@ department.get(function(req,res,next){
 
 var cse = router.route('/department/iitr_cse');
 var r,s,t;
-var str = 'iitr_cse';
+var str;
 cse.get(function(req,res,next){
+    str = 'iitr_cse';
     connection.query('SELECT * FROM Department WHERE ID =?',[str], function (err, result1) {
         if(err){
             throw err;
@@ -101,14 +100,14 @@ cse.get(function(req,res,next){
             r = {index: result3};                
         }        
     });
-    connection.query('SELECT * FROM (Dept_event natural join Events) WHERE d_ID =?',[str], function (err, result4) {
+    connection.query('SELECT * FROM Department,(SELECT * FROM Dept_event,Events WHERE Events.ID=Dept_event.e_ID) as NEW WHERE Department.ID=NEW.d_ID AND Department.ID =?',[str], function (err, result4) {
         if(err){
             throw err;
         } else {
             s = {index: result4};                
         }        
     });
-    connection.query('SELECT * FROM (Dept_notice natural join News) WHERE d_ID =?',[str], function (err, result2) {
+    connection.query('SELECT * FROM Department,(SELECT * FROM Dept_notice,News WHERE News.ID=Dept_notice.n_ID) as NEW WHERE Department.ID=NEW.d_ID AND Department.ID =?',[str], function (err, result2) {
         if(err){
             throw err;
         } else {
@@ -123,8 +122,8 @@ cse.get(function(req,res,next){
 });
 
 var ece = router.route('/department/iitr_ee');
-str = 'iitr_ee';
 ece.get(function(req,res,next){
+    str = 'iitr_ee';
     connection.query('SELECT * FROM Department WHERE ID =?',[str], function (err, result1) {
         if(err){
             throw err;
@@ -139,14 +138,22 @@ ece.get(function(req,res,next){
             r = {index: result3};                
         }        
     });
-    connection.query('SELECT * FROM (Dept_event natural join Events) WHERE d_ID =?',[str], function (err, result4) {
+<<<<<<< HEAD
+    connection.query('SELECT * FROM Department,(SELECT * FROM Dept_event,Events WHERE Events.ID=Dept_event.e_ID) as NEW WHERE Department.ID=NEW.d_ID AND Department.ID =?',[str], function (err, result4) {
+=======
+    connection.query('SELECT Events.Central_image_Url,Events.Title,Events.Post_timestamp,Events.Description FROM (Dept_event NATURAL JOIN Events) WHERE d_ID =?',[str], function (err, result4) {
+>>>>>>> c0a82ac2cc1617f099eca277c38a403ccf4865b2
         if(err){
             throw err;
         } else {
             s = {index: result4};                
         }        
     });
-    connection.query('SELECT * FROM (Dept_notice natural join News) WHERE d_ID =?',[str], function (err, result2) {
+<<<<<<< HEAD
+    connection.query('SELECT * FROM Department,(SELECT * FROM Dept_notice,News WHERE News.ID=Dept_notice.n_ID) as NEW WHERE Department.ID=NEW.d_ID AND Department.ID =?',[str], function (err, result2) {
+=======
+    connection.query('SELECT * FROM (Dept_notice NATURAL JOIN News) WHERE d_ID =?',[str], function (err, result2) {
+>>>>>>> c0a82ac2cc1617f099eca277c38a403ccf4865b2
         if(err){
             throw err;
         } else {
@@ -161,8 +168,8 @@ ece.get(function(req,res,next){
 });
 
 var ce = router.route('/department/iitr_ce');
-str = 'iitr_ce';
 ce.get(function(req,res,next){
+    str = 'iitr_ce';
     connection.query('SELECT * FROM Department WHERE ID =?',[str], function (err, result1) {
         if(err){
             throw err;
@@ -177,17 +184,19 @@ ce.get(function(req,res,next){
             r = {index: result3};                
         }        
     });
-    connection.query('SELECT * FROM (Dept_event natural join Events) WHERE d_ID =?',[str], function (err, result4) {
+    connection.query('SELECT * FROM Department,(SELECT * FROM Dept_event,Events WHERE Events.ID=Dept_event.e_ID) as NEW WHERE Department.ID=NEW.d_ID AND Department.ID =?',[str], function (err, result4) {
         if(err){
             throw err;
         } else {
-            s = {index: result4};                
+            s = {index: result4}; 
+            console.log(s);               
         }        
     });
-    connection.query('SELECT * FROM (Dept_notice natural join News) WHERE d_ID =?',[str], function (err, result2) {
+    connection.query('SELECT * FROM Department,(SELECT * FROM Dept_notice,News WHERE News.ID=Dept_notice.n_ID) as NEW WHERE Department.ID=NEW.d_ID AND Department.ID =?',[str], function (err, result2) {
         if(err){
             throw err;
         } else {
+            console.log(s);
             var obj ={};
             obj.index = q.index;
             obj.part2 = r.index;
@@ -199,8 +208,8 @@ ce.get(function(req,res,next){
 });
 
 var civil = router.route('/department/iitr_civil');
-str = 'iitr_civil';
 civil.get(function(req,res,next){
+    str = 'iitr_civil';
     connection.query('SELECT * FROM Department WHERE ID =?',[str], function (err, result1) {
         if(err){
             throw err;
@@ -215,14 +224,14 @@ civil.get(function(req,res,next){
             r = {index: result3};                
         }        
     });
-    connection.query('SELECT * FROM (Dept_event natural join Events) WHERE d_ID =?',[str], function (err, result4) {
+    connection.query('SELECT * FROM Department,(SELECT * FROM Dept_event,Events WHERE Events.ID=Dept_event.e_ID) as NEW WHERE Department.ID=NEW.d_ID AND Department.ID =?',[str], function (err, result4) {
         if(err){
             throw err;
         } else {
             s = {index: result4};                
         }        
     });
-    connection.query('SELECT * FROM (Dept_notice natural join News) WHERE d_ID =?',[str], function (err, result2) {
+    connection.query('SELECT * FROM Department,(SELECT * FROM Dept_notice,News WHERE News.ID=Dept_notice.n_ID) as NEW WHERE Department.ID=NEW.d_ID AND Department.ID =?',[str], function (err, result2) {
         if(err){
             throw err;
         } else {
@@ -237,8 +246,8 @@ civil.get(function(req,res,next){
 });
 
 var quiz = router.route('/event/general_quiz');
-str = 'general_quiz';
 quiz.get(function(req,res,next){
+    str = 'general_quiz';    
     connection.query('SELECT * FROM Events WHERE ID =?',[str], function (err, result1) {
         if(err){
             throw err;
@@ -259,8 +268,8 @@ quiz.get(function(req,res,next){
 });
 
 var health_quiz = router.route('/event/mental_health_quiz');
-str = 'mental_health_quiz';
 health_quiz.get(function(req,res,next){
+    str = 'mental_health_quiz';
     connection.query('SELECT * FROM Events WHERE ID =?',[str], function (err, result1) {
         if(err){
             throw err;
@@ -281,8 +290,8 @@ health_quiz.get(function(req,res,next){
 });
 
 var newton = router.route('/event/newton_movie');
-str = 'newton_movie';
 newton.get(function(req,res,next){
+    str = 'newton_movie';
     connection.query('SELECT * FROM Events WHERE ID =?',[str], function (err, result1) {
         if(err){
             throw err;
@@ -303,8 +312,8 @@ newton.get(function(req,res,next){
 });
 
 var rally = router.route('/event/rally_rivers');
-str = 'rally_rivers';
 rally.get(function(req,res,next){
+    str = 'rally_rivers';
     connection.query('SELECT * FROM Events WHERE ID =?',[str], function (err, result1) {
         if(err){
             throw err;
@@ -325,8 +334,8 @@ rally.get(function(req,res,next){
 });
 
 var workshop = router.route('/event/workshop_on_ei');
-str = 'workshop_on_ei';
 workshop.get(function(req,res,next){
+    str = 'workshop_on_ei';
     connection.query('SELECT * FROM Events WHERE ID =?',[str], function (err, result1) {
         if(err){
             throw err;
@@ -334,7 +343,7 @@ workshop.get(function(req,res,next){
             q = {index: result1};                
         }        
     });
-    connection.query('SELECT * FROM (Event_images natural join Events) WHERE e_ID =?',[str], function (err, result2) {
+    connection.query('SELECT * FROM (Event_images,Events) WHERE Events.ID=Event_images.e_ID AND Event_images.e_ID =?',[str], function (err, result2) {
         if(err){
             throw err;
         } else {
@@ -345,7 +354,6 @@ workshop.get(function(req,res,next){
         }        
     });
 });
-
 
 
 var groups = router.route('/groups');
